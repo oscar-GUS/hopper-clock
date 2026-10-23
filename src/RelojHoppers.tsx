@@ -78,6 +78,8 @@ export default function RelojHoppers() {
           items:    parseFloat(itemsVal) || 0,
         },
       }, '*')
+      // Y para la analítica de MineLite: alguien ha calculado algo (se cuenta una vez por visita).
+      window.parent.postMessage({ fuente: 'minelite-tool', tipo: 'tool_use', accion: 'calcular' }, '*')
     }, 700)
     return () => clearTimeout(t)
   }, [horas, minutos, segundos, itemsVal])
